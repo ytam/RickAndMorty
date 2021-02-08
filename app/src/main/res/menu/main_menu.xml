@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <item
+        android:id="@+id/change_layout"
+        android:title="list"
+        android:icon="@drawable/ic_baseline_view_list_24"
+        app:showAsAction="always" />
+
+</menu>

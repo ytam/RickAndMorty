@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">OBSS PROJECT CHALLANGE</string>
+    <string name="name">Name: %s </string>
+    <string name="species">Species: %s </string>
+    <string name="status">Status: %s </string>
+    <string name="number_of_episodes">Number of episodes: %s </string>
+    <string name="gender">Gender: %s </string>
+    <string name="origin_location_name">Origin location: %s </string>
+    <string name="last_known_location_name">Last known location: %s </string>
+    <string name="error_has_occurred">Error has occurred</string>
+</resources>
