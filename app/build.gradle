@@ -71,4 +71,6 @@ dependencies {
     implementation "android.arch.lifecycle:extensions:$lifeCycleExtensionVersion"
 
     implementation "com.github.bumptech.glide:glide:$glideVersion"
+    annotationProcessor "com.github.bumptech.glide:compiler:$glideVersion"
+    implementation "com.github.bumptech.glide:okhttp3-integration:$glideVersion"
 }
