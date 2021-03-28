@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">OBSS PROJECT CHALLANGE</string>
+    <string name="app_name">Rick and Morty</string>
     <string name="name">Name: %s </string>
     <string name="species">Species: %s </string>
     <string name="status">Status: %s </string>
