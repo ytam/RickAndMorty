@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name = "OBSS PROJECT CHALLANGE"
+rootProject.name = "Rick And Morty"
