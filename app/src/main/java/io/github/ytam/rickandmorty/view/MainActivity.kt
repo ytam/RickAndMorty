@@ -19,9 +19,8 @@ class MainActivity : AppCompatActivity() {
         NavigationUI.setupActionBarWithNavController(this, navigationController)
     }
 
-    //back button toolbar
+    // back button toolbar
     override fun onSupportNavigateUp(): Boolean {
         return NavigationUI.navigateUp(navigationController, null)
     }
-
 }

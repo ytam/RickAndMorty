@@ -1,7 +1,12 @@
 package io.github.ytam.rickandmorty.view
 
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
@@ -26,7 +31,8 @@ class CharacterFragment : Fragment() {
     private var isAvailableToSearch: Boolean = false
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         setHasOptionsMenu(true)
@@ -44,78 +50,93 @@ class CharacterFragment : Fragment() {
         val characterAdapter = CharacterAdapter(arrayListOf(), layoutManager!!)
         characterRecyclerView.adapter = characterAdapter
 
-        characterRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
-                if (!recyclerView.canScrollVertically(1)) {
+        characterRecyclerView.addOnScrollListener(
+            object : RecyclerView.OnScrollListener() {
+                override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                    if (!recyclerView.canScrollVertically(1)) {
 
-                    if (isAvailableToSearch) {
+                        if (isAvailableToSearch) {
 
-                        viewModel.searchNextPage(name)
+                            viewModel.searchNextPage(name)
+                        }
                     }
                 }
             }
-        })
+        )
 
-        characterSearchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
+        characterSearchView.setOnQueryTextListener(
+            object : SearchView.OnQueryTextListener {
+                override fun onQueryTextSubmit(query: String?): Boolean {
 
-                name = query
-                viewModel.getDataFromAPI(query)
-                characterSearchView.clearFocus()
-                return false
-            }
+                    name = query
+                    viewModel.getDataFromAPI(query)
+                    characterSearchView.clearFocus()
+                    return false
+                }
 
-            override fun onQueryTextChange(newText: String?): Boolean {
-                return false
-            }
-        })
-
-        viewModel.characters.observe(viewLifecycleOwner, Observer { characters ->
-
-            characters?.let {
-
-                characterRecyclerView.visibility = View.VISIBLE
-                characterError.visibility = View.GONE
-
-                characterAdapter.updateList(it)
-            }
-        })
-
-        viewModel.characterError.observe(viewLifecycleOwner, Observer { error ->
-
-            error?.let {
-
-                if (it) {
-
-                    Toast.makeText(
-                        context,
-                        "" + getString(R.string.error_has_occurred),
-                        Toast.LENGTH_LONG
-                    ).show()
-
+                override fun onQueryTextChange(newText: String?): Boolean {
+                    return false
                 }
             }
-        })
+        )
 
-        viewModel.characterLoading.observe(viewLifecycleOwner, Observer { loading ->
+        viewModel.characters.observe(
+            viewLifecycleOwner,
+            Observer { characters ->
 
-            loading?.let {
+                characters?.let {
 
-                if (it) {
-                    characterLoadingProgressBar.visibility = View.VISIBLE
-                } else {
-                    characterLoadingProgressBar.visibility = View.GONE
+                    characterRecyclerView.visibility = View.VISIBLE
+                    characterError.visibility = View.GONE
+
+                    characterAdapter.updateList(it)
                 }
             }
-        })
+        )
 
-        viewModel.isNextPageAvailable.observe(viewLifecycleOwner, Observer {
+        viewModel.characterError.observe(
+            viewLifecycleOwner,
+            Observer { error ->
 
-            it?.let {
+                error?.let {
 
-                isAvailableToSearch = it
+                    if (it) {
+
+                        Toast.makeText(
+                            context,
+                            "" + getString(R.string.error_has_occurred),
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
+                }
             }
-        })
+        )
+
+        viewModel.characterLoading.observe(
+            viewLifecycleOwner,
+            Observer { loading ->
+
+                loading?.let {
+
+                    if (it) {
+                        characterLoadingProgressBar.visibility = View.VISIBLE
+                    } else {
+                        characterLoadingProgressBar.visibility = View.GONE
+                    }
+                }
+            }
+        )
+
+        viewModel.isNextPageAvailable.observe(
+            viewLifecycleOwner,
+            Observer {
+
+                it?.let {
+
+                    isAvailableToSearch = it
+                }
+            }
+        )
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -135,7 +156,6 @@ class CharacterFragment : Fragment() {
                 } else {
                     layoutManager?.spanCount = SwitchLayoutEnums.SPAN_COUNT_ONE.value
                     item.icon = resources.getDrawable(R.drawable.ic_baseline_view_grid_24)
-
                 }
                 characterRecyclerView.adapter?.notifyItemRangeChanged(
                     0,

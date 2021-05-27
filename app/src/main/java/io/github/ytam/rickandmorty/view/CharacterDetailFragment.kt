@@ -13,7 +13,6 @@ import io.github.ytam.rickandmorty.R
 import io.github.ytam.rickandmorty.databinding.FragmentCharacterDetailBinding
 import io.github.ytam.rickandmorty.viewmodel.CharacterDetailViewModel
 
-
 /**
  *Created by Yıldırım TAM on 04/02/2021.
  */
@@ -24,7 +23,8 @@ class CharacterDetailFragment : Fragment() {
     private var characterId = 0
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         fragmentCharacterDetailBinding =
@@ -43,27 +43,33 @@ class CharacterDetailFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(CharacterDetailViewModel::class.java)
         viewModel.getDataFromAPI(characterId)
 
-        viewModel.characterDetail.observe(viewLifecycleOwner, Observer { characterDetail ->
+        viewModel.characterDetail.observe(
+            viewLifecycleOwner,
+            Observer { characterDetail ->
 
-            characterDetail?.let {
+                characterDetail?.let {
 
-                fragmentCharacterDetailBinding.characterDetail = characterDetail
-            }
-        })
-
-        viewModel.characterError.observe(viewLifecycleOwner, Observer { error ->
-
-            error?.let {
-
-                if (it) {
-
-                    Toast.makeText(
-                        context,
-                        "" + getString(R.string.error_has_occurred),
-                        Toast.LENGTH_LONG
-                    ).show()
+                    fragmentCharacterDetailBinding.characterDetail = characterDetail
                 }
             }
-        })
+        )
+
+        viewModel.characterError.observe(
+            viewLifecycleOwner,
+            Observer { error ->
+
+                error?.let {
+
+                    if (it) {
+
+                        Toast.makeText(
+                            context,
+                            "" + getString(R.string.error_has_occurred),
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
+                }
+            }
+        )
     }
 }

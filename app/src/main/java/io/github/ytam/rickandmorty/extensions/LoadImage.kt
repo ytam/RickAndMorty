@@ -20,8 +20,7 @@ fun ImageView.loadFromUrl(url: String) {
         .diskCacheStrategy(DiskCacheStrategy.ALL)
         .priority(Priority.HIGH)
         .dontAnimate()
-        .dontTransform();
-
+        .dontTransform()
 
     Glide.with(context)
         .setDefaultRequestOptions(options)

@@ -10,4 +10,3 @@ data class Origin(
     @SerializedName("name")
     val name: String?
 )
-
