@@ -57,7 +57,7 @@ def lifeCycleExtensionVersion = '1.1.1'
 def supportVersion = '28.0.0'
 def retrofitVersion = '2.9.0'
 def glideVersion = '4.11.0'
-def rxJavaVersion = '2.2.19'
+def rxJavaVersion = '2.1.1'
 
 dependencies {
 
