@@ -7,16 +7,17 @@
 
     <fragment
         android:id="@+id/characterFragment"
-        android:name="io.github.ytam.rickandmorty.view.CharacterFragment"
+        android:name="io.github.ytam.rickandmorty.ui.character.CharacterFragment"
         android:label="Rick and Morty"
         tools:layout="@layout/fragment_character">
         <action
             android:id="@+id/action_characterFragment_to_characterDetailFragment"
-            app:destination="@id/characterDetailFragment" />
+            app:destination="@id/characterDetailFragment"
+            app:enterAnim="@android:anim/slide_in_left" />
     </fragment>
     <fragment
         android:id="@+id/characterDetailFragment"
-        android:name="io.github.ytam.rickandmorty.view.CharacterDetailFragment"
+        android:name="io.github.ytam.rickandmorty.ui.characterdetail.CharacterDetailFragment"
         android:label="CharacterDetailFragment"
         tools:layout="@layout/fragment_character_detail">
 

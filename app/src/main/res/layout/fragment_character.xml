@@ -6,7 +6,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.CharacterFragment">
+        android:background="#24282f"
+        tools:context=".ui.character.CharacterFragment">
 
         <androidx.appcompat.widget.SearchView
             android:id="@+id/characterSearchView"

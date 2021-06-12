@@ -2,7 +2,6 @@ package io.github.ytam.rickandmorty.service
 
 import io.github.ytam.rickandmorty.model.CharacterDetail
 import io.github.ytam.rickandmorty.service.response.CharactersResponse
-import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
@@ -13,13 +12,13 @@ import retrofit2.http.Query
 interface RickAndMortyAPI {
 
     @GET("character/")
-    fun getCharacters(
+    suspend fun getCharacters(
         @Query("page") page: String,
         @Query("name") name: String?
-    ): Single<CharactersResponse>
+    ): CharactersResponse
 
     @GET("character/{id}")
-    fun getCharacterDetail(
+    suspend fun getCharacterDetail(
         @Path("id") id: Int
-    ): Single<CharacterDetail>
+    ): CharacterDetail
 }
