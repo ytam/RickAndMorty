@@ -6,7 +6,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#24282f"
+        android:background="@color/bg_color"
         tools:context=".ui.character.CharacterFragment">
 
         <androidx.appcompat.widget.SearchView
@@ -20,7 +20,8 @@
             android:layout_marginRight="12dp"
             android:layout_marginTop="12dp"
             app:iconifiedByDefault="false"
-            app:queryHint="search..." />
+            style="@style/Platform.MaterialComponents.Light"
+            app:queryHint="search by name..." />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/characterRecyclerView"

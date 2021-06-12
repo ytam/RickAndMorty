@@ -1,5 +1,6 @@
 package io.github.ytam.rickandmorty.ui.character
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -57,6 +58,8 @@ class CharacterFragment : Fragment() {
     }
 
     private fun initSearchView() {
+
+        characterSearchView.setBackgroundColor(Color.WHITE)
         characterSearchView.setOnQueryTextListener(
             object : SearchView.OnQueryTextListener {
                 override fun onQueryTextSubmit(query: String?): Boolean {
