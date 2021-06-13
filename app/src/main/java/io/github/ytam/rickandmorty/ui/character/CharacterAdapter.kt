@@ -55,7 +55,7 @@ class CharacterAdapter() : RecyclerView.Adapter<CharacterAdapter.CharacterViewHo
         when (characterList[position].status) {
             CharacterStatusEnums.CHARACTER_ALIVE.value -> holder.view.dead_status.setBackgroundColor(Color.parseColor("#14D91B"))
             CharacterStatusEnums.CHARACTER_DEAD.value -> holder.view.dead_status.setBackgroundColor(Color.parseColor("#FF0800"))
-            CharacterStatusEnums.CHARACTER_UNKNOWN.value -> holder.view.dead_status.setBackgroundColor(Color.parseColor("#F8F816"))
+            CharacterStatusEnums.CHARACTER_UNKNOWN.value -> holder.view.dead_status.setBackgroundColor(Color.parseColor("#E3E3E3"))
             else -> {
                 holder.view.dead_status.setBackgroundColor(Color.parseColor("#F8F816"))
             }
