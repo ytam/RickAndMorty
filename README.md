@@ -18,10 +18,15 @@ You can also see and download apk file by [this link](https://github.com/ytam/Ri
 * Retrofit
 * Koin
 * Kotlin Coroutines
-
+* 
 
 ## Screenshots 📱
-<img width="200px" align="left" src="./Screenshoots/Screenshot_list.png" />
-<img width="200px" align="left" src="./Screenshoots/Screenshot_detail.png" />
- 
- 
+ <p align="left">
+  <img src="./Screenshoots/Screenshot_list.png" width="270" alt="Character List">
+  <img src="./Screenshoots/Screenshot_detail.png" width="270" alt="Character detail">
+</p>
+
+
+
+## MAD Score 👇
+![summary](https://github.com/ytam/RickAndMorty/blob/main/mad_scorecard.png)
