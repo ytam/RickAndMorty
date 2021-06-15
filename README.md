@@ -6,19 +6,19 @@ You can also see and download apk file by [this link](https://github.com/ytam/Ri
 
 
 ## Tech stack
-* Clean Architecture
-* Repository pattern
-* MVVM
-* Navigation Component
-* Safe-Args
-* Glide
-* Livedata
-* Viewmodel
-* Navigation Component
-* Retrofit
-* Koin
-* Kotlin Coroutines
-* 
+* ✅ Clean Architecture
+* ✅ Repository pattern
+* ✅ MVVM
+* ✅ Navigation Component
+* ✅ Safe-Args
+* ✅ Glide
+* ✅ Livedata
+* ✅ Viewmodel
+* ✅ Navigation Component
+* ✅ Retrofit
+* ✅ Koin
+* ✅ Kotlin Coroutines
+
 
 ## Screenshots 📱
  <p align="left">
