@@ -6,6 +6,7 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
 import io.github.ytam.rickandmorty.R
+import timber.log.Timber
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,6 +18,8 @@ class MainActivity : AppCompatActivity() {
 
         navigationController = Navigation.findNavController(this, R.id.fragment)
         NavigationUI.setupActionBarWithNavController(this, navigationController)
+
+        Timber.d("Message from timber")
     }
 
     // back button toolbar
