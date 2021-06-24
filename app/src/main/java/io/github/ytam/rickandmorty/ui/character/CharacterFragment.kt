@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import io.github.ytam.rickandmorty.R
 import io.github.ytam.rickandmorty.model.Character
 import kotlinx.android.synthetic.main.fragment_character.*
+import kotlinx.android.synthetic.main.fragment_character.view.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
 /**
@@ -22,6 +23,7 @@ class CharacterFragment : Fragment() {
 
     private val characterAdapter = CharacterAdapter()
     private val viewModel: CharacterViewModel by viewModel()
+    private lateinit var mView: View
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,7 +31,8 @@ class CharacterFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         setHasOptionsMenu(true)
-        return inflater.inflate(R.layout.fragment_character, container, false)
+        mView =  inflater.inflate(R.layout.fragment_character, container, false)
+        return mView
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -76,6 +79,7 @@ class CharacterFragment : Fragment() {
     }
 
     private fun observe() {
+        showShimmerEffect()
         viewModel.getCharactersLiveData().observe(CharacterFragment@ this) {
             showCharacters(it)
         }
@@ -93,6 +97,18 @@ class CharacterFragment : Fragment() {
     }
 
     private fun showCharacters(characters: List<Character>) {
+
         characterAdapter.updateList(characters)
+
+        hideShimmerEffect()
+    }
+
+    private fun showShimmerEffect(){
+
+        mView.characterRecyclerView.showShimmer()
+    }
+    private fun hideShimmerEffect(){
+
+        mView.characterRecyclerView.hideShimmer()
     }
 }
