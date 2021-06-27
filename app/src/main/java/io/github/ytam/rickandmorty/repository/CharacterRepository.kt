@@ -6,8 +6,8 @@ import io.github.ytam.rickandmorty.service.RickAndMortyAPI
 
 class CharacterRepository(private val api: RickAndMortyAPI) {
 
-    suspend fun getCharacters(page: Int, name: String?): List<Character> {
-        return api.getCharacters(page.toString(), name).results
+    suspend fun getCharacters(page: Int, name: String?, status: String?, gender: String?): List<Character> {
+        return api.getCharacters(page.toString(), name, status, gender).results
     }
 
     suspend fun getCharacterById(id: Int): CharacterDetail {

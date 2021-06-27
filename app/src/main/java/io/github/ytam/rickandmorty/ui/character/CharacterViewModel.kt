@@ -20,14 +20,18 @@ class CharacterViewModel(private val repository: CharacterRepository) : ViewMode
     private val isQueryAvailable = MutableLiveData<Boolean>()
     private var pageNumber: Int = 1
     private var queryName: String? = ""
+    private var queryGender: String? = ""
+    private var queryStatus: String? = ""
 
-    fun getCharacters(page: Int, name: String?) {
+    fun getCharacters(page: Int, name: String?, status: String?, gender: String?) {
         isQueryAvailable.value = false
         pageNumber = page
         queryName = name
+        queryGender = gender
+        queryStatus = status
         viewModelScope.launch {
             val result = withContext(Dispatchers.IO) {
-                runCatching { repository.getCharacters(page, name) }
+                runCatching { repository.getCharacters(page, name, status, gender) }
             }
             result.onSuccess { characterList.value = it }
             result.onFailure { error.value = it }
@@ -48,7 +52,7 @@ class CharacterViewModel(private val repository: CharacterRepository) : ViewMode
             var currentCharacters: MutableList<Character>? = characterList.value?.toMutableList()
             viewModelScope.launch {
                 val result1 = withContext(Dispatchers.IO) {
-                    runCatching { repository.getCharacters(pageNumber + 1, queryName) }
+                    runCatching { repository.getCharacters(pageNumber + 1, queryName, queryStatus, queryGender) }
                 }
                 result1.onSuccess { characterList.value = it }
                 result1.onFailure { error.value = it }

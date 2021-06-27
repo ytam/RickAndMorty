@@ -8,7 +8,6 @@ import org.koin.core.context.startKoin
 import timber.log.Timber
 import timber.log.Timber.DebugTree
 
-
 class MainApplication : Application() {
 
     override fun onCreate() {

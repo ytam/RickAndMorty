@@ -68,33 +68,34 @@
                 app:layout_constraintStart_toStartOf="parent"
                 tools:text="@tools:sample/full_names" />
 
-            <TextView
-                android:id="@+id/tvCharacterSpecies"
+            <com.google.android.material.chip.Chip
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:id="@+id/chipCharacterSpecies"
                 android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_margin="12dp"
-                android:layout_marginStart="12dp"
-                android:layout_weight="1"
-                android:text="@{String.format(@string/species, characterDetail.species)}"
+                android:layout_height="wrap_content"
                 android:textColor="@color/white"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:chipBackgroundColor="#3b3d42"
+                android:layout_gravity="center"
+                tools:text="@tools:sample/full_names"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/chipCharacterStatus"
                 app:layout_constraintTop_toBottomOf="@id/tvCharacterName2"
-                tools:text="@tools:sample/full_names" />
+                android:text="@{characterDetail.species}" />
 
-            <TextView
-                android:id="@+id/tvCharacterStatus"
+
+            <com.google.android.material.chip.Chip
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:id="@+id/chipCharacterStatus"
                 android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_margin="12dp"
-                android:layout_marginStart="12dp"
-                android:layout_weight="1"
-                android:text="@{String.format(@string/status, characterDetail.status)}"
+                android:layout_height="wrap_content"
                 android:textColor="@color/white"
+                app:chipBackgroundColor="#3b3d42"
+                tools:text="@tools:sample/full_names"
+                app:layout_constraintStart_toEndOf="@id/chipCharacterSpecies"
+                app:layout_constraintTop_toBottomOf="@id/tvCharacterName2"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvCharacterSpecies"
-                tools:text="@tools:sample/full_names" />
+                android:text="@{characterDetail.status}" />
+
 
             <TextView
                 android:id="@+id/tvCharacterNumberOfEpisodes"
@@ -107,7 +108,7 @@
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvCharacterStatus"
+                app:layout_constraintTop_toBottomOf="@id/chipCharacterStatus"
                 tools:text="@tools:sample/lorem" />
 
             <TextView
@@ -133,6 +134,7 @@
                 android:layout_weight="1"
                 android:text="@{String.format(@string/origin_location_name, characterDetail.origin.name)}"
                 android:textColor="@color/white"
+                android:background="#8024282f"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvCharacterGender"
@@ -145,6 +147,7 @@
                 android:layout_margin="12dp"
                 android:layout_marginStart="12dp"
                 android:layout_weight="1"
+                android:background="#8024282f"
                 android:text="@{String.format(@string/last_known_location_name, characterDetail.location.name)}"
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"

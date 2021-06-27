@@ -22,4 +22,9 @@
         <item name="cornerSizeBottomRight">20%</item>
     </style>
 
+    <style name="CustomChip" parent="Widget.MaterialComponents.Chip.Filter">
+
+
+    </style>
+
 </resources>

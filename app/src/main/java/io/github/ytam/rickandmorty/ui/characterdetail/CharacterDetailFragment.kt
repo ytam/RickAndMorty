@@ -1,7 +1,6 @@
 package io.github.ytam.rickandmorty.ui.characterdetail
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

@@ -2,14 +2,16 @@ package io.github.ytam.rickandmorty.ui.character
 
 import android.graphics.Color
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import io.github.ytam.rickandmorty.R
 import io.github.ytam.rickandmorty.model.Character
 import kotlinx.android.synthetic.main.fragment_character.*
@@ -19,7 +21,9 @@ import org.koin.android.viewmodel.ext.android.viewModel
 /**
  *Created by Yıldırım TAM on 04/02/2021.
  */
-class CharacterFragment : Fragment() {
+class CharacterFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
+
+    private val args by navArgs<CharacterFragmentArgs>()
 
     private val characterAdapter = CharacterAdapter()
     private val viewModel: CharacterViewModel by viewModel()
@@ -31,17 +35,25 @@ class CharacterFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         setHasOptionsMenu(true)
-        mView =  inflater.inflate(R.layout.fragment_character, container, false)
+        mView = inflater.inflate(R.layout.fragment_character, container, false)
         return mView
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setHasOptionsMenu(true)
         initRecyclerView()
-        initSearchView()
         observe()
-        viewModel.getCharacters(1, "")
+        viewModel.getCharacters(1, "", args.bottomSheetStatus, args.bottomSheetGender)
+
+        fabFilter.setOnClickListener {
+            val action = CharacterFragmentDirections.actionCharacterFragmentToFilterBottomSheetFragment()
+
+            Navigation.findNavController(it).navigate(action)
+        }
+
+        swipeRefreshLayout.setOnRefreshListener(this)
     }
 
     private fun initRecyclerView() {
@@ -55,24 +67,6 @@ class CharacterFragment : Fragment() {
                     if (!recyclerView.canScrollVertically(1)) {
                         viewModel.searchNextPage()
                     }
-                }
-            }
-        )
-    }
-
-    private fun initSearchView() {
-
-        characterSearchView.setBackgroundColor(Color.WHITE)
-        characterSearchView.setOnQueryTextListener(
-            object : SearchView.OnQueryTextListener {
-                override fun onQueryTextSubmit(query: String?): Boolean {
-                    viewModel.getCharacters(1, query)
-                    characterSearchView.clearFocus()
-                    return false
-                }
-
-                override fun onQueryTextChange(newText: String?): Boolean {
-                    return false
                 }
             }
         )
@@ -103,13 +97,43 @@ class CharacterFragment : Fragment() {
         hideShimmerEffect()
     }
 
-    private fun showShimmerEffect(){
+    private fun showShimmerEffect() {
 
         mView.characterRecyclerView.showShimmer()
     }
 
-    private fun hideShimmerEffect(){
+    private fun hideShimmerEffect() {
 
         mView.characterRecyclerView.hideShimmer()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.search_menu,menu)
+
+        val search = menu.findItem(R.id.search)
+        val searchView = search.actionView as? SearchView
+
+        searchView?.isSubmitButtonEnabled = true
+
+        searchView?.queryHint = "search..."
+
+        searchView?.setOnQueryTextListener(object: SearchView.OnQueryTextListener  {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                viewModel.getCharacters(1, query, "", "")
+                searchView.clearFocus()
+                return false
+            }
+            override fun onQueryTextChange(newText: String?): Boolean {
+                return false
+            }
+        })
+    }
+
+    override fun onRefresh() {
+
+        viewModel.getCharacters(1, "", "", "")
+
+        swipeRefreshLayout.isRefreshing = false
+
     }
 }
