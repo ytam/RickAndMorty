@@ -20,3 +20,21 @@ data class Character(
     @SerializedName("image")
     val image: String?
 )
+data class Info(
+    @SerializedName("count")
+    val count: Int?,
+    @SerializedName("pages")
+    val pages: Int?,
+    @SerializedName("next")
+    val next: String?,
+    @SerializedName("prev")
+    val prev: String?,
+)
+
+data class CharacterList(
+
+    @SerializedName("info")
+    val info: Info?,
+    @SerializedName("results")
+    val results: List<Character>?
+)

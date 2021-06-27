@@ -15,9 +15,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.constraintlayout.motion.widget.MotionLayout
+            android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            app:layoutDescription="@xml/fragment_character_detail_xml_constraintlayout_scene">
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/ivCharacterProfile"
@@ -25,55 +27,72 @@
                 android:layout_height="0dp"
                 android:background="#3b3d42"
                 android:elevation="9dp"
-                android:scaleType="fitCenter"
-                tools:srcCompat="@drawable/rick"
                 android:loadUrl="@{characterDetail.image}"
-                app:layout_constraintStart_toStartOf="parent"
+                android:scaleType="fitCenter"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.CardView" />
+                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.CardView"
+                tools:srcCompat="@drawable/rick" />
 
             <TextView
                 android:id="@+id/tvCharacterName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:gravity="center"
                 android:background="#8024282f"
-                android:text= "@{String.format(@string/name, characterDetail.name)}"
+                android:gravity="center"
                 android:padding="12dp"
-                android:textSize="18sp"
+                android:text="@{String.format(@string/name, characterDetail.name)}"
                 android:textColor="@color/white"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:textSize="18sp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@id/ivCharacterProfile"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="@tools:sample/full_names" />
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/tvCharacterName2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#8024282f"
+                android:gravity="center"
+                android:padding="12dp"
+                android:text="@{String.format(@string/name, characterDetail.name)}"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/tvCharacterName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 tools:text="@tools:sample/full_names" />
 
             <TextView
                 android:id="@+id/tvCharacterSpecies"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
+                android:layout_margin="12dp"
                 android:layout_marginStart="12dp"
                 android:layout_weight="1"
-                android:text= "@{String.format(@string/species, characterDetail.species)}"
-                android:layout_margin="12dp"
+                android:text="@{String.format(@string/species, characterDetail.species)}"
                 android:textColor="@color/white"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvCharacterName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvCharacterName2"
                 tools:text="@tools:sample/full_names" />
 
             <TextView
                 android:id="@+id/tvCharacterStatus"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
+                android:layout_margin="12dp"
                 android:layout_marginStart="12dp"
                 android:layout_weight="1"
-                android:text= "@{String.format(@string/status, characterDetail.status)}"
-                android:layout_margin="12dp"
+                android:text="@{String.format(@string/status, characterDetail.status)}"
                 android:textColor="@color/white"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvCharacterSpecies"
                 tools:text="@tools:sample/full_names" />
 
@@ -81,13 +100,13 @@
                 android:id="@+id/tvCharacterNumberOfEpisodes"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
+                android:layout_margin="12dp"
                 android:layout_marginStart="12dp"
                 android:layout_weight="1"
-                android:text= "@{String.format(@string/number_of_episodes, characterDetail.episode.size())}"
-                android:layout_margin="12dp"
+                android:text="@{String.format(@string/number_of_episodes, characterDetail.episode.size())}"
                 android:textColor="@color/white"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvCharacterStatus"
                 tools:text="@tools:sample/lorem" />
 
@@ -95,13 +114,13 @@
                 android:id="@+id/tvCharacterGender"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
+                android:layout_margin="12dp"
                 android:layout_marginStart="12dp"
                 android:layout_weight="1"
-                android:text= "@{String.format(@string/gender, characterDetail.gender)}"
-                android:layout_margin="12dp"
+                android:text="@{String.format(@string/gender, characterDetail.gender)}"
                 android:textColor="@color/white"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvCharacterNumberOfEpisodes"
                 tools:text="@tools:sample/lorem" />
 
@@ -109,13 +128,13 @@
                 android:id="@+id/tvCharacterOriginLocation"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
+                android:layout_margin="12dp"
                 android:layout_marginStart="12dp"
                 android:layout_weight="1"
-                android:text= "@{String.format(@string/origin_location_name, characterDetail.origin.name)}"
-                android:layout_margin="12dp"
+                android:text="@{String.format(@string/origin_location_name, characterDetail.origin.name)}"
                 android:textColor="@color/white"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvCharacterGender"
                 tools:text="@tools:sample/lorem" />
 
@@ -123,17 +142,17 @@
                 android:id="@+id/tvCharacterLastLocation"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
+                android:layout_margin="12dp"
                 android:layout_marginStart="12dp"
                 android:layout_weight="1"
-                android:text= "@{String.format(@string/last_known_location_name, characterDetail.location.name)}"
-                android:layout_margin="12dp"
+                android:text="@{String.format(@string/last_known_location_name, characterDetail.location.name)}"
                 android:textColor="@color/white"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvCharacterOriginLocation"
                 tools:text="@tools:sample/lorem" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.motion.widget.MotionLayout>
 
     </ScrollView>
 </layout>

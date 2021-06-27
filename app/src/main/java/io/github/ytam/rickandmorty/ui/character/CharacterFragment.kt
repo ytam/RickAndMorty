@@ -107,6 +107,7 @@ class CharacterFragment : Fragment() {
 
         mView.characterRecyclerView.showShimmer()
     }
+
     private fun hideShimmerEffect(){
 
         mView.characterRecyclerView.hideShimmer()

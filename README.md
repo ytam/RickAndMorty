@@ -18,6 +18,7 @@ You can also see and download apk file by [this link](https://github.com/ytam/Ri
 * ✅ Retrofit
 * ✅ Koin
 * ✅ Kotlin Coroutines
+* ✅ Motion Layout
 
 
 ## Screenshots 📱

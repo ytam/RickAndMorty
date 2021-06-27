@@ -59,6 +59,7 @@ def glideVersion = '4.12.0'
 def koin_version = "2.1.5"
 def okhttp_version = "4.9.0"
 def timber_version = "4.7.1"
+def paging_version = "3.0.0"
 
 dependencies {
 
@@ -103,5 +104,7 @@ dependencies {
     // Shimmer
     implementation 'com.facebook.shimmer:shimmer:0.5.0'
     implementation 'com.todkars:shimmer-recyclerview:0.4.0'
+
+    implementation "androidx.paging:paging-runtime:$paging_version"
 
 }

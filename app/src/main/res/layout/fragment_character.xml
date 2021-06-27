@@ -29,7 +29,7 @@
             android:layout_height="0dp"
             android:layout_margin="12dp"
             app:shimmer_recycler_layout="@layout/placeholder_item"
-            app:shimmer_recycler_item_count="4"
+            app:shimmer_recycler_item_count="8"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
