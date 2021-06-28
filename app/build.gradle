@@ -22,18 +22,18 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    productFlavors{
+    productFlavors {
 
-        dev{
+        dev {
 
         }
-        prod{
+        prod {
 
         }
 
     }
 
-    dataBinding{
+    dataBinding {
         enabled = true
     }
 
@@ -110,6 +110,4 @@ dependencies {
     implementation "androidx.paging:paging-runtime:$paging_version"
 
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:$swipe_refresh_version"
-
-
 }

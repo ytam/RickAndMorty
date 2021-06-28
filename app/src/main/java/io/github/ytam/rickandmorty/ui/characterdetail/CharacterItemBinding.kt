@@ -2,7 +2,6 @@ package io.github.ytam.rickandmorty.ui.characterdetail
 
 import android.annotation.SuppressLint
 import android.view.View
-import androidx.annotation.ColorInt
 import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
 import com.google.android.material.chip.Chip
@@ -16,20 +15,20 @@ class CharacterItemBinding {
         fun applyStatusColor(view: View, status: String) {
 
             when (status) {
-                 "Alive" -> {
-                     view.setBackgroundColor(
-                         ContextCompat.getColor(view.context, R.color.design_default_color_secondary)
-                     )
+                "Alive" -> {
+                    view.setBackgroundColor(
+                        ContextCompat.getColor(view.context, R.color.design_default_color_secondary)
+                    )
                 }
-                 "Dead" -> {
-                     view.setBackgroundColor(
-                         ContextCompat.getColor(view.context, R.color.design_default_color_secondary)
-                     )
+                "Dead" -> {
+                    view.setBackgroundColor(
+                        ContextCompat.getColor(view.context, R.color.design_default_color_secondary)
+                    )
                 }
-                 "Unknown" -> {
-                     view.setBackgroundColor(
-                         ContextCompat.getColor(view.context, R.color.design_default_color_secondary)
-                     )
+                "Unknown" -> {
+                    view.setBackgroundColor(
+                        ContextCompat.getColor(view.context, R.color.design_default_color_secondary)
+                    )
                 }
             }
         }
@@ -38,7 +37,7 @@ class CharacterItemBinding {
         @BindingAdapter("app:tint")
         fun Chip.setBackgroundColor(status: String) {
 
-            when(status){
+            when (status) {
                 "Alive" -> {
                     setBackgroundColor(R.color.design_default_color_secondary)
 

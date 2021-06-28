@@ -1,11 +1,9 @@
 package io.github.ytam.rickandmorty.ui.character
 
-import android.graphics.Color
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
@@ -48,7 +46,8 @@ class CharacterFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
         viewModel.getCharacters(1, "", args.bottomSheetStatus, args.bottomSheetGender)
 
         fabFilter.setOnClickListener {
-            val action = CharacterFragmentDirections.actionCharacterFragmentToFilterBottomSheetFragment()
+            val action =
+                CharacterFragmentDirections.actionCharacterFragmentToFilterBottomSheetFragment()
 
             Navigation.findNavController(it).navigate(action)
         }
@@ -58,7 +57,7 @@ class CharacterFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
 
     private fun initRecyclerView() {
 
-        characterRecyclerView.layoutManager = GridLayoutManager(context, 1)
+        characterRecyclerView.layoutManager = GridLayoutManager(context, 2)
         characterRecyclerView.adapter = characterAdapter
 
         characterRecyclerView.addOnScrollListener(
@@ -108,7 +107,7 @@ class CharacterFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.search_menu,menu)
+        inflater.inflate(R.menu.search_menu, menu)
 
         val search = menu.findItem(R.id.search)
         val searchView = search.actionView as? SearchView
@@ -117,12 +116,13 @@ class CharacterFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
 
         searchView?.queryHint = "search..."
 
-        searchView?.setOnQueryTextListener(object: SearchView.OnQueryTextListener  {
+        searchView?.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 viewModel.getCharacters(1, query, "", "")
                 searchView.clearFocus()
                 return false
             }
+
             override fun onQueryTextChange(newText: String?): Boolean {
                 return false
             }
@@ -134,6 +134,5 @@ class CharacterFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
         viewModel.getCharacters(1, "", "", "")
 
         swipeRefreshLayout.isRefreshing = false
-
     }
 }

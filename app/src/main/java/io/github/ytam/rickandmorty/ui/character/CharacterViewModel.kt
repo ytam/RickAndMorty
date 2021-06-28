@@ -52,7 +52,14 @@ class CharacterViewModel(private val repository: CharacterRepository) : ViewMode
             var currentCharacters: MutableList<Character>? = characterList.value?.toMutableList()
             viewModelScope.launch {
                 val result1 = withContext(Dispatchers.IO) {
-                    runCatching { repository.getCharacters(pageNumber + 1, queryName, queryStatus, queryGender) }
+                    runCatching {
+                        repository.getCharacters(
+                            pageNumber + 1,
+                            queryName,
+                            queryStatus,
+                            queryGender
+                        )
+                    }
                 }
                 result1.onSuccess { characterList.value = it }
                 result1.onFailure { error.value = it }

@@ -22,14 +22,14 @@
             app:destination="@id/filterBottomSheetFragment" />
         <argument
             android:name="bottomSheetGender"
-            app:argType="string"
             android:defaultValue=""
-            app:nullable="true"/>
+            app:argType="string"
+            app:nullable="true" />
         <argument
             android:name="bottomSheetStatus"
-            app:argType="string"
             android:defaultValue=""
-            app:nullable="true"/>
+            app:argType="string"
+            app:nullable="true" />
     </fragment>
     <fragment
         android:id="@+id/characterDetailFragment"
@@ -39,15 +39,15 @@
 
         <argument
             android:name="characterId"
-            app:argType="integer"
-            android:defaultValue="0" />
+            android:defaultValue="0"
+            app:argType="integer" />
 
     </fragment>
     <dialog
         android:id="@+id/filterBottomSheetFragment"
         android:name="io.github.ytam.rickandmorty.ui.character.filterbottomsheet.FilterBottomSheetFragment"
         android:label="filter_bottom_sheet"
-        tools:layout="@layout/filter_bottom_sheet" >
+        tools:layout="@layout/filter_bottom_sheet">
         <action
             android:id="@+id/action_filterBottomSheetFragment_to_characterFragment"
             app:destination="@id/characterFragment"

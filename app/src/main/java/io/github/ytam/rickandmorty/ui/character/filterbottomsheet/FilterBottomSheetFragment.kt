@@ -9,7 +9,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.chip.Chip
 import io.github.ytam.rickandmorty.R
 import kotlinx.android.synthetic.main.filter_bottom_sheet.view.*
-import java.util.Locale
+import java.util.*
 
 class FilterBottomSheetFragment : BottomSheetDialogFragment() {
 
@@ -37,7 +37,10 @@ class FilterBottomSheetFragment : BottomSheetDialogFragment() {
         mView.apply_btn.setOnClickListener {
 
             val action =
-                FilterBottomSheetFragmentDirections.actionFilterBottomSheetFragmentToCharacterFragment(genderChip, statusChip)
+                FilterBottomSheetFragmentDirections.actionFilterBottomSheetFragmentToCharacterFragment(
+                    genderChip,
+                    statusChip
+                )
             findNavController().navigate(action)
         }
 

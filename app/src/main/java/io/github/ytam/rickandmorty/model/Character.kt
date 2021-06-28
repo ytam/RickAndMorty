@@ -20,6 +20,7 @@ data class Character(
     @SerializedName("image")
     val image: String?
 )
+
 data class Info(
     @SerializedName("count")
     val count: Int?,

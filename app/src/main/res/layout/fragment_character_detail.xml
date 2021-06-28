@@ -11,9 +11,9 @@
     </data>
 
     <ScrollView
-        android:background="@color/bg_color"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/bg_color">
 
         <androidx.constraintlayout.motion.widget.MotionLayout
             android:id="@+id/constraintLayout"
@@ -52,7 +52,6 @@
                 tools:text="@tools:sample/full_names" />
 
             <TextView
-                android:visibility="gone"
                 android:id="@+id/tvCharacterName2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -63,39 +62,38 @@
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                app:layout_constraintTop_toBottomOf="@id/tvCharacterName"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvCharacterName"
                 tools:text="@tools:sample/full_names" />
 
             <com.google.android.material.chip.Chip
-                style="@style/Widget.MaterialComponents.Chip.Filter"
                 android:id="@+id/chipCharacterSpecies"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@{characterDetail.species}"
                 android:textColor="@color/white"
                 app:chipBackgroundColor="#3b3d42"
-                android:layout_gravity="center"
-                tools:text="@tools:sample/full_names"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/chipCharacterStatus"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvCharacterName2"
-                android:text="@{characterDetail.species}" />
-
+                tools:text="@tools:sample/full_names" />
 
             <com.google.android.material.chip.Chip
-                style="@style/Widget.MaterialComponents.Chip.Filter"
                 android:id="@+id/chipCharacterStatus"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@{characterDetail.status}"
                 android:textColor="@color/white"
                 app:chipBackgroundColor="#3b3d42"
-                tools:text="@tools:sample/full_names"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/chipCharacterSpecies"
                 app:layout_constraintTop_toBottomOf="@id/tvCharacterName2"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:text="@{characterDetail.status}" />
-
+                tools:text="@tools:sample/full_names" />
 
             <TextView
                 android:id="@+id/tvCharacterNumberOfEpisodes"
@@ -132,9 +130,9 @@
                 android:layout_margin="12dp"
                 android:layout_marginStart="12dp"
                 android:layout_weight="1"
+                android:background="#8024282f"
                 android:text="@{String.format(@string/origin_location_name, characterDetail.origin.name)}"
                 android:textColor="@color/white"
-                android:background="#8024282f"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvCharacterGender"
