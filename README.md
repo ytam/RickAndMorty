@@ -23,8 +23,9 @@ You can also see and download apk file by [this link](https://github.com/ytam/Ri
 
 ## Screenshots 📱
  <p align="left">
-  <img src="./Screenshoots/Screenshot_list.png" width="270" alt="Character List">
-  <img src="./Screenshoots/Screenshot_detail.png" width="270" alt="Character detail">
+  <img src="./Screenshoots/Screenshot_list.png" width="240" alt="Character List">
+  <img src="./Screenshoots/Screenshot_filter.png" width="240" alt="Character detail">
+  <img src="./Screenshoots/Screenshot_detail.png" width="240" alt="Character detail">
 </p>
 
 
