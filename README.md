@@ -11,10 +11,10 @@ This is a basic Android application that shows [Rick and Morty](https://rickandm
 </br>
 
  <p align="center">
-  <img src="./arts/list.png" width="200">
-  <img src="./arts/filter.png" width="200">
-  <img src="./arts/search.png" width="200">
-  <img src="./arts/detail.png" width="200">
+  <img src="./arts/list.png" width="220">
+  <img src="./arts/filter.png" width="220">
+  <img src="./arts/search.png" width="220">
+  <img src="./arts/detail.png" width="220">
 </p>
 
 
