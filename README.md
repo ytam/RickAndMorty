@@ -34,10 +34,10 @@ This is a basic Android application that shows [Rick and Morty](https://rickandm
 * ✅ Motion Layout
 
 ## Apk
-You can also see and download apk file by [this link](https://github.com/ytam/RickAndMorty/tree/main/app/dev/release/rickandmorty.apk).
+You can also see and download apk file by [this link](https://github.com/ytam/RickAndMorty/tree/main/app/dev/release/).
 
 ## MAD Score 👇
-![summary](https://github.com/ytam/RickAndMorty/arts/mad_scorecard.png)
+![summary](/arts/mad_scorecard.png)
 
 # License
 ```xml
