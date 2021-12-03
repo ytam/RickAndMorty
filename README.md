@@ -8,15 +8,13 @@
 This is a basic Android application that shows [Rick and Morty](https://rickandmortyapi.com/) characters and their details, based on mvvm architecture.
 
 </p>
-</br>
 
- <p align="center">
+<p align="center">
   <img src="./arts/list.png" width="200">
   <img src="./arts/filter.png" width="200">
   <img src="./arts/search.png" width="200">
   <img src="./arts/detail.png" width="200">
 </p>
-
 
 <img src="/arts/rickandmorty.gif" align="right"  width="24%"/>
 
@@ -36,10 +34,10 @@ This is a basic Android application that shows [Rick and Morty](https://rickandm
 * ✅ Motion Layout
 
 ## Apk
-You can also see and download apk file by [this link](https://github.com/ytam/RickAndMorty/blob/main/rickandmorty.apk).
+You can also see and download apk file by [this link](https://github.com/ytam/RickAndMorty/tree/main/app/dev/release/rickandmorty.apk).
 
 ## MAD Score 👇
-![summary](https://github.com/ytam/RickAndMorty/blob/main/mad_scorecard.png)
+![summary](https://github.com/ytam/RickAndMorty/arts/mad_scorecard.png)
 
 # License
 ```xml
