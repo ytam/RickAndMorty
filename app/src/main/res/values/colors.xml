@@ -8,4 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="bg_color">#24282f</color>
+    <string name="alive">#14D91B</string>
+    <string name="dead">#FF0800</string>
+    <string name="unknown">#E3E3E3</string>
 </resources>
