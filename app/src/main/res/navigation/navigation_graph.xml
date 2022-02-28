@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/characterFragment"
-        android:name="io.github.ytam.rickandmorty.ui.character.CharacterFragment"
+        android:name="io.github.ytam.rickandmorty.presentation.characterlist.CharacterListFragment"
         android:label="Rick and Morty"
         tools:layout="@layout/fragment_character">
         <action
@@ -20,14 +20,13 @@
     </fragment>
     <fragment
         android:id="@+id/characterDetailFragment"
-        android:name="io.github.ytam.rickandmorty.ui.characterdetail.CharacterDetailFragment"
+        android:name="io.github.ytam.rickandmorty.presentation.characterdetail.CharacterDetailFragment"
         android:label="Details"
         tools:layout="@layout/fragment_character_detail">
 
         <argument
-            android:name="characterId"
-            app:argType="integer"
-            android:defaultValue="0" />
-
+            android:name="character"
+            app:argType="io.github.ytam.rickandmorty.domain.model.Character"
+            app:nullable="false" />
     </fragment>
 </navigation>

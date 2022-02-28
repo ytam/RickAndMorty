@@ -1,84 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView android:layout_margin="4dp"
-    app:cardCornerRadius="12dp"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:layout_margin="4dp"
+    app:cardCornerRadius="8dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:background="#3b3d42"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/ivCharacterProfile"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:srcCompat="@tools:sample/avatars"
-            android:layout_width="120dp"
-            android:layout_height="120dp"/>
+            android:contentDescription="@string/content_description_profile_image" />
 
-        <LinearLayout
-            android:id="@+id/ll_info"
-            android:padding="6dp"
-            android:layout_marginTop="6dp"
-            android:layout_marginBottom="6dp"
-            android:layout_marginEnd="6dp"
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/ivCharacterProfile"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            app:cardBackgroundColor="#8024282f"
+            app:layout_constraintStart_toStartOf="@+id/ivCharacterProfile"
+            app:layout_constraintTop_toTopOf="@id/ivCharacterProfile">
 
-            <TextView
-                android:id="@+id/tvCharacterName"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                tools:text="@tools:sample/full_names" />
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="4dp">
 
-            <TextView
-                android:id="@+id/tvCharacterSpecies"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:layout_marginTop="8dp"
-                tools:text="@tools:sample/full_names" />
+                <ImageView
+                    android:id="@+id/imgCharacterStatus"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_baseline_lens_24" />
+
+                <TextView
+                    android:id="@+id/tvCharacterStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    tools:text="Alive" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            app:cardBackgroundColor="#8024282f"
+            app:layout_constraintEnd_toEndOf="@+id/ivCharacterProfile"
+            app:layout_constraintTop_toTopOf="@id/ivCharacterProfile">
 
             <TextView
                 android:id="@+id/tvCharacterGender"
                 android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:layout_marginTop="8dp"
-                android:textColor="@color/white"
-                tools:text="@tools:sample/full_names" />
-
-            <TextView
-                android:visibility="gone"
-                android:text= "@{String.valueOf(character.id)}"
-                android:id="@+id/tvCharacterId"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="@tools:sample/full_names" />
+                android:layout_marginStart="4dp"
+                android:padding="4dp"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                tools:text="Alive" />
 
-        </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
-        <View
-            android:id="@+id/dead_status"
-            android:background="@color/teal_200"
+        <TextView
+            android:id="@+id/tvCharacterName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_width="4dp"
-            android:layout_height="120dp"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivCharacterProfile"
+            tools:text="@tools:sample/full_names" />
+
+        <TextView
+            android:id="@+id/tvCharacterSpecies"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvCharacterName"
+            tools:text="Human" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.cardview.widget.CardView>
-
-
+</com.google.android.material.card.MaterialCardView>
