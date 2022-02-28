@@ -35,7 +35,6 @@ class CharacterListAdapter :
                 tvCharacterName.text = character.name
                 tvCharacterStatus.text = character.status
                 ivCharacterProfile.load(character.image)
-                tvCharacterSpecies.text = character.species
                 tvCharacterGender.text = character.gender
 
                 when (character.status) {
