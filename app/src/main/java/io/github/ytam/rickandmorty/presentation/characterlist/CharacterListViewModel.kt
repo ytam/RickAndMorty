@@ -29,6 +29,10 @@ class CharacterListViewModel @Inject constructor(
     val searchQuery = _searchQuery.asStateFlow()
     private var searchJob: Job? = null
 
+    companion object {
+        const val TIME_MILLIS = 500L
+    }
+
     fun onEvent(event: CharacterListEvent) {
         when (event) {
             is CharacterListEvent.GetAllCharactersByName -> onSearch(event.characterName)
@@ -49,7 +53,7 @@ class CharacterListViewModel @Inject constructor(
         _searchQuery.value = query
         searchJob?.cancel()
         searchJob = viewModelScope.launch {
-            delay(500L)
+            delay(TIME_MILLIS)
             getCharactersByName(query)
         }
     }

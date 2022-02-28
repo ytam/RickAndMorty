@@ -1,6 +1,6 @@
 package io.github.ytam.rickandmorty.data.remote
 
-import io.github.ytam.rickandmorty.data.remote.dto.CharacterResponseDto
+import io.github.ytam.rickandmorty.data.remote.model.CharacterResponseDto
 import retrofit2.http.GET
 import retrofit2.http.Query
 

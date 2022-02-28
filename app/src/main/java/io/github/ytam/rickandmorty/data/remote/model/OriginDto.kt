@@ -1,8 +1,8 @@
-package io.github.ytam.rickandmorty.data.remote.dto
+package io.github.ytam.rickandmorty.data.remote.model
 
 import com.google.gson.annotations.SerializedName
 
-data class LocationDto(
+data class OriginDto(
     @SerializedName("name")
     val name: String,
     @SerializedName("url")

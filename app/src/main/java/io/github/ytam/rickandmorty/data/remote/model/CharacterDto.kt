@@ -1,4 +1,4 @@
-package io.github.ytam.rickandmorty.data.remote.dto
+package io.github.ytam.rickandmorty.data.remote.model
 
 import com.google.gson.annotations.SerializedName
 import io.github.ytam.rickandmorty.data.locale.entity.CharacterEntity

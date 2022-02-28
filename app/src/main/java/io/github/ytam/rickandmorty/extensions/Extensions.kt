@@ -6,6 +6,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import androidx.navigation.NavController
 import androidx.navigation.NavDirections
+import timber.log.Timber
 
 fun View.gone() {
     visibility = View.GONE
@@ -25,7 +26,7 @@ fun View.hideKeyboard() {
             .getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         manager.hideSoftInputFromWindow(windowToken, 0)
     } catch (e: java.lang.Exception) {
-        e.printStackTrace()
+        Timber.i(e)
     }
 }
 

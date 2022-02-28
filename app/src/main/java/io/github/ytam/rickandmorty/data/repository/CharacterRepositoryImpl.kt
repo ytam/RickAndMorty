@@ -1,6 +1,10 @@
 package io.github.ytam.rickandmorty.data.repository
 
-import androidx.paging.*
+import androidx.paging.ExperimentalPagingApi
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.PagingData
+import androidx.paging.map
 import io.github.ytam.rickandmorty.data.locale.Database
 import io.github.ytam.rickandmorty.data.paging.RemoteMediator
 import io.github.ytam.rickandmorty.data.remote.RickAndMortyApi

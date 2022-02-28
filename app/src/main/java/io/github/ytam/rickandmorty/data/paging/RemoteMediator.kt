@@ -81,10 +81,16 @@ class RemoteMediator(
                     endOfPaginationReached = false
                 )
             }
+            else -> {
+                val remoteKeys = getRemoteKeyClosestToCurrentPosition(state)
+                remoteKeys?.nextKey?.minus(1) ?: 1
+            }
         }
     }
 
-    private suspend fun getRemoteKeyClosestToCurrentPosition(state: PagingState<Int, CharacterEntity>): RemoteKeyEntity? {
+    private suspend fun getRemoteKeyClosestToCurrentPosition(
+        state: PagingState<Int, CharacterEntity>
+    ): RemoteKeyEntity? {
         return state.anchorPosition?.let { position ->
             state.closestItemToPosition(position)?.id?.let { repoId ->
                 db.remoteKeyDao.remoteKeysCharacterId(repoId)

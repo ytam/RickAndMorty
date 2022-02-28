@@ -10,6 +10,8 @@ buildscript {
         classpath 'androidx.navigation:navigation-safe-args-gradle-plugin:2.4.1'
         classpath 'com.google.dagger:hilt-android-gradle-plugin:2.40.5'
         classpath 'org.jlleitschuh.gradle:ktlint-gradle:10.2.0'
+        classpath "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.18.1"
+
     }
 }
 
