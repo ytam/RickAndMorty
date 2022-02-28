@@ -1,16 +1,51 @@
 package io.github.ytam.rickandmorty.di
 
-import io.github.ytam.rickandmorty.repository.CharacterRepository
-import io.github.ytam.rickandmorty.ui.character.CharacterViewModel
-import io.github.ytam.rickandmorty.ui.characterdetail.CharacterDetailViewModel
-import org.koin.android.viewmodel.dsl.viewModel
-import org.koin.dsl.module
+import android.app.Application
+import androidx.paging.ExperimentalPagingApi
+import androidx.room.Room
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
+import io.github.ytam.rickandmorty.data.locale.Database
+import io.github.ytam.rickandmorty.data.remote.RickAndMortyApi
+import io.github.ytam.rickandmorty.data.repository.CharacterRepositoryImpl
+import io.github.ytam.rickandmorty.domain.repository.CharacterRepository
+import io.github.ytam.rickandmorty.domain.usecase.GetCharactersByName
+import io.github.ytam.rickandmorty.utils.Constants
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Singleton
 
-val appModule = module {
+@Module
+@InstallIn(SingletonComponent::class)
+object RickAndMortyModule {
+    @Singleton
+    @Provides
+    fun provideGetCharactersByNameUseCase(
+        getCharactersRepository: CharacterRepository
+    ): GetCharactersByName = GetCharactersByName(getCharactersRepository)
 
-    factory { CharacterRepository(get()) }
+    @Singleton
+    @Provides
+    @ExperimentalPagingApi
+    fun provideCharacterRepository(
+        api: RickAndMortyApi,
+        db: Database
+    ): CharacterRepository = CharacterRepositoryImpl(api, db)
 
-    viewModel { CharacterViewModel(get()) }
+    @Singleton
+    @Provides
+    fun provideRickAndMortyApi(): RickAndMortyApi =
+        Retrofit.Builder().baseUrl(Constants.BASE_URL).addConverterFactory(
+            GsonConverterFactory.create()
+        )
+            .build().create(RickAndMortyApi::class.java)
 
-    viewModel { CharacterDetailViewModel(get()) }
+    @Singleton
+    @Provides
+    fun provideRickAndMortyDatabase(
+        app: Application
+    ): Database =
+        Room.databaseBuilder(app, Database::class.java, "rickAndMortyDb").build()
 }

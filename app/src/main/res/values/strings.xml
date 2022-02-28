@@ -8,6 +8,6 @@
     <string name="origin_location_name">Origin location: %s </string>
     <string name="last_known_location_name">Last known location: %s </string>
     <string name="error_has_occurred">Error has occurred</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="content_description_profile_image">Profile image</string>
+    <string name="search_character">Search...</string>
 </resources>
