@@ -110,4 +110,7 @@ dependencies {
     // Timber
     implementation "com.jakewharton.timber:timber:$timber_version"
 
+    //noinspection GradleCompatible
+    implementation("com.android.support:palette-v7:28.0.0")
+
 }

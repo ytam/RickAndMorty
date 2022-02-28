@@ -1,11 +1,15 @@
 package io.github.ytam.rickandmorty.extensions
 
 import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import androidx.navigation.NavController
 import androidx.navigation.NavDirections
+import java.net.URL
+import okio.IOException
 import timber.log.Timber
 
 fun View.gone() {
