@@ -17,18 +17,22 @@ This is a basic Android application that shows [Rick and Morty](https://rickandm
 
 ## Tech stack
 * ✅ Clean Architecture
-* ✅ Repository pattern
 * ✅ MVVM
+* ✅ Kotlin Flow
+* ✅ Kotlin Coroutines
 * ✅ Navigation Component
 * ✅ Safe-Args
-* ✅ Glide
+* ✅ Dagger Hilt
 * ✅ Livedata
 * ✅ ViewModel
 * ✅ Navigation Component
 * ✅ Retrofit
-* ✅ Koin
-* ✅ Kotlin Coroutines
-* ✅ Motion Layout
+* ✅ Coil
+* ✅ Room
+* ✅ Timber
+* ✅ Paging 3
+* ✅ View Binding
+* ✅ Lifecycle
 
 ## Apk
 You can also see and download apk file by [this link](https://github.com/ytam/RickAndMorty/tree/main/app/dev/release/).
