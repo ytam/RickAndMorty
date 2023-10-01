@@ -12,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/ThemeSplashApi">
-        <activity android:name="io.github.ytam.rickandmorty.presentation.MainActivity"
+        <activity
+            android:theme="@style/ThemeSplashApi"
+            android:name=".presentation.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
