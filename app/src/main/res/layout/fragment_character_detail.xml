@@ -23,7 +23,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@drawable/rick" />
+            tools:srcCompat="@tools:sample/avatars" />
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
@@ -107,7 +107,6 @@
         </com.google.android.material.card.MaterialCardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 </ScrollView>
 

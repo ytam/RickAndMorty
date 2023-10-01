@@ -35,8 +35,8 @@ class CharacterRepositoryImpl(
                 characterName
             ),
             pagingSourceFactory = pagingSourceFactory
-        ).flow.map { CharacterEntityPagingData ->
-            CharacterEntityPagingData.map { characterEntity -> characterEntity.toCharacter() }
+        ).flow.map { characterEntityPagingData ->
+            characterEntityPagingData.map { characterEntity -> characterEntity.toCharacter() }
         }
     }
 }
