@@ -10,4 +10,14 @@
     <string name="error_has_occurred">Error has occurred</string>
     <string name="content_description_profile_image">Profile image</string>
     <string name="search_character">Search...</string>
+    <string name="search">Search</string>
+    <string name="bottom_sheet_status">Status</string>
+    <string name="bottom_sheet_alive">Alive</string>
+    <string name="bottom_sheet_dead">Dead</string>
+    <string name="bottom_sheet_unknown">Unknown</string>
+    <string name="bottom_sheet_gender">Gender</string>
+    <string name="bottom_sheet_female">Female</string>
+    <string name="bottom_sheet_male">Male</string>
+    <string name="bottom_sheet_genderless">Genderless</string>
+    <string name="bottom_sheet_apply">Apply</string>
 </resources>

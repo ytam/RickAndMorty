@@ -38,7 +38,8 @@ class RemoteMediator(
 
             val isEndOfList =
 
-                response.info.next == null || response.toString().contains("error") || response.results.isEmpty()
+                response.info.next == null || response.toString()
+                    .contains("error") || response.results.isEmpty()
 
             db.withTransaction {
                 if (loadType == LoadType.REFRESH) {
@@ -70,20 +71,22 @@ class RemoteMediator(
                 val remoteKeys = getRemoteKeyClosestToCurrentPosition(state)
                 remoteKeys?.nextKey?.minus(1) ?: 1
             }
+
             LoadType.APPEND -> {
                 val remoteKeys = getLastRemoteKey(state)
                 val nextKey = remoteKeys?.nextKey
                 return nextKey ?: MediatorResult.Success(endOfPaginationReached = false)
             }
+
             LoadType.PREPEND -> {
                 val remoteKeys = getFirstRemoteKey(state)
                 remoteKeys?.prevKey ?: return MediatorResult.Success(
                     endOfPaginationReached = false
                 )
             }
+
             else -> {
-                val remoteKeys = getRemoteKeyClosestToCurrentPosition(state)
-                remoteKeys?.nextKey?.minus(1) ?: 1
+                getKeyPageData(LoadType.REFRESH, state)
             }
         }
     }

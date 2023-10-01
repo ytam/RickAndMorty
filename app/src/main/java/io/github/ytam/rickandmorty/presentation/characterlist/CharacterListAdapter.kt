@@ -41,12 +41,15 @@ class CharacterListAdapter :
                     CharacterStatusEnums.CHARACTER_ALIVE.value -> imgCharacterStatus.setColorFilter(
                         Color.parseColor("#14D91B")
                     )
+
                     CharacterStatusEnums.CHARACTER_DEAD.value -> imgCharacterStatus.setColorFilter(
                         Color.parseColor("#FF0800")
                     )
+
                     CharacterStatusEnums.CHARACTER_UNKNOWN.value -> imgCharacterStatus.setColorFilter(
                         Color.parseColor("#E3E3E3")
                     )
+
                     else -> {
                         imgCharacterStatus.setColorFilter(Color.parseColor("#F8F816"))
                     }

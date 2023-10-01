@@ -55,13 +55,12 @@ kapt {
     correctErrorTypes = true
 }
 
-
 dependencies {
-    implementation("androidx.core:core-ktx:1.10.1")
+    implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.9.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    implementation("androidx.legacy:legacy-support-v4:1.0.0")
+    implementation("androidx.core:core-splashscreen:1.0.1")
 
     // Navigation Component
     val vNavigation = "2.7.3"
@@ -90,14 +89,7 @@ dependencies {
     implementation("com.squareup.okhttp3:logging-interceptor:$vOkhttp")
 
     // Lifecycle
-    val vLifeCycleExtension = "1.1.1"
-    implementation("android.arch.lifecycle:extensions:$vLifeCycleExtension")
-
-    // Glide
-    val vGlide = "4.12.0"
-    implementation("com.github.bumptech.glide:glide:$vGlide")
-    annotationProcessor("com.github.bumptech.glide:compiler:$vGlide")
-    implementation("com.github.bumptech.glide:okhttp3-integration:$vGlide")
+    implementation("android.arch.lifecycle:extensions:1.1.1")
 
     // Coil
     implementation("io.coil-kt:coil:2.2.2")
@@ -114,18 +106,9 @@ dependencies {
     kapt("androidx.hilt:hilt-compiler:1.0.0")
 
     // Paging
-    val vPaging = "3.2.1"
-    implementation("androidx.paging:paging-runtime-ktx:$vPaging")
+    implementation("androidx.paging:paging-runtime-ktx:3.2.1")
 
     // Timber
-    val vTimber = "5.0.1"
-    implementation("com.jakewharton.timber:timber:$vTimber")
-
-    //noinspection GradleCompatible
-    implementation("com.android.support:palette-v7:28.0.0")
-
-    // Work Manager
-    val workVersion = "2.8.1"
-    implementation("androidx.work:work-runtime-ktx:$workVersion")
+    implementation("com.jakewharton.timber:timber:5.0.1")
 
 }
