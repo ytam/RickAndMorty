@@ -19,7 +19,8 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object RickAndMortyModule {
+object AppModule {
+
     @Singleton
     @Provides
     fun provideGetCharactersByNameUseCase(
